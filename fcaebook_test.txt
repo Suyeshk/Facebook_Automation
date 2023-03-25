@@ -1,0 +1,44 @@
+***settings***
+Documentation  This test suite uses SeleniumLibrary to log in Facebook account
+		  ...  using correct and incorrect email address and password
+		
+*** Settings ***
+Library    SeleniumLibrary
+
+***variables***
+${URL}                     https://www.facebook.com/login/
+${RIGHT_EMAIL_ADDRESS}	   /*your right email id here*/
+${WRONG_EMAIL_ADDRESS}	  suyesh@gmail.com
+${RIGHT_PASSWORD}	        /*your right password here*/
+${WRONG_PASSWORD}	        Abc123467
+${BROWSER}                Chrome
+
+***testcases***
+FB Login Test
+ Open Browser    ${URL}    ${BROWSER}
+ Maximize Browser Window
+ Input Text    name=email    ${RIGHT_EMAIL_ADDRESS}
+ Input Text    name=pass    ${RIGHT_PASSWORD}
+ Click Button    xpath://*[@id="loginbutton"]
+ sleep    30s
+ Close Browser
+
+
+Negative Facebook Log In Test with Wrong Password
+	Log In Facebook  ${RIGHT_EMAIL_ADDRESS}  ${WRONG_PASSWORD}
+	Page Should Contain  The email and password you entered don't match.
+	Close Browser
+
+Negative Facebook Log In Test with Wrong Email Address
+	Log In Facebook  ${WRONG_EMAIL_ADDRESS}  ${RIGHT_PASSWORD}
+	Page Should Contain  The email and password you entered don't match.
+	Close Browser
+
+
+	
+Open Facebook Application
+	Go To  https://www.facebook.com/login/
+
+
+	
+	
