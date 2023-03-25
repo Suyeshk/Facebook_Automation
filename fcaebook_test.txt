@@ -8,10 +8,10 @@ Library    SeleniumLibrary
 ***variables***
 ${URL}                     https://www.facebook.com/login/
 ${RIGHT_EMAIL_ADDRESS}	   /*your right email id here*/
-${WRONG_EMAIL_ADDRESS}	  suyesh@gmail.com
-${RIGHT_PASSWORD}	        /*your right password here*/
-${WRONG_PASSWORD}	        Abc123467
-${BROWSER}                Chrome
+${WRONG_EMAIL_ADDRESS}	   suyesh@gmail.com
+${RIGHT_PASSWORD}	   /*your right password here*/
+${WRONG_PASSWORD}	   Abc123467
+${BROWSER}                 Chrome
 
 ***testcases***
 FB Login Test
